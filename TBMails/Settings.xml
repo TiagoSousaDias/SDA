@@ -1,0 +1,19 @@
+﻿<Settings>
+  <Automatismos_Folder>C:\Users\Tiago\Desktop\Teste\Automatismo</Automatismos_Folder>
+  <Automatismos_Subfolders>
+    <SubFolder>
+      <Path>00. Desenvolvimento</Path>
+      </SubFolder>
+    <SubFolder>
+      <Path>01. Script</Path>
+      <Files>
+        <Ficheiro>
+          <Nome>Teste</Nome>
+        </Ficheiro>
+      </Files>
+    </SubFolder>
+    <SubFolder>
+      <Path>02. Backup</Path>
+    </SubFolder>
+  </Automatismos_Subfolders>
+</Settings>

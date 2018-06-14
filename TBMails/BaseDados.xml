@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BaseDados>
+  <BD Id="1">
+    <Name>CRM</Name>
+    <Path>C:\BD</Path>
+    <Ligacoes>
+      <Ligacao Id="1" Refreshed="False" LastRefresh="04/12/2017">Mobility</Ligacao>
+    </Ligacoes>
+   </BD>
+</BaseDados>

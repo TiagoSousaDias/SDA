@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Links>
+  <Link Id="1" Path="teste" Name="Teste">
+    <!--Definições File-->
+    <Ligacoes>
+      <Ligacao Id="1" BD="tEste" IDReal="1">Teste</Ligacao>
+    </Ligacoes>
+    <Mails>
+      <Mail Id="1">teste@gmail.com</Mail>
+    </Mails>
+  </Link>
+  
+</Links>
