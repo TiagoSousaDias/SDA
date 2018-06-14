@@ -216,7 +216,7 @@ namespace TBMails {
                 //    alertas.Add(new Alertas() { Alerta = TipoAlerta.Erro, Ficheiro = u[u.Length-1] , TimeError= DateTime.Now});
                 //}
 
-                //Thread.Sleep(8000);
+                Thread.Sleep(8000);
                 tt.Navigate().GoToUrl(mainURL + url.Link);
                 Thread.Sleep(2000);
                 IWebElement i = tt.FindElement(By.CssSelector(".ui.green.mini.button"));
