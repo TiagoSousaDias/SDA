@@ -14,14 +14,14 @@ namespace TBMails
     class ExcelLink
     {
         static private string _FileName;
-        static private Dictionary<string, DateTime > _conns;
+     // static private Dictionary<string, DateTime > _conns;
         object NullValue = System.Reflection.Missing.Value;
         Application xlApp;
         private Workbook _xlWorkbook;
         public Workbook xlWorkbook  { get {return _xlWorkbook;} }
 
         public Worksheet sheet { get; set; }
-        public ExcelLink(string filename)
+        public ExcelLink(string filename, bool readOnly = false)
         {
             _FileName = filename;
             xlApp = new Application();
@@ -29,14 +29,14 @@ namespace TBMails
             {
 
          
-            _xlWorkbook = xlApp.Workbooks.Open(@_FileName, NullValue, false, NullValue, NullValue,
+            _xlWorkbook = xlApp.Workbooks.Open(@_FileName, NullValue,false, NullValue, NullValue,
                NullValue, NullValue, NullValue, NullValue, NullValue,
                NullValue, NullValue, NullValue, NullValue, NullValue);
                 this.sheet = _xlWorkbook.Worksheets.get_Item(1);
             }
             catch(Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 
@@ -88,79 +88,81 @@ namespace TBMails
             Image image = (Image)data.GetData(System.Windows.Forms.DataFormats.Bitmap, true);
             return image;
         }
-       //public void RefreshAll()
-       //{
+        public void RefreshAll()
+        {
 
-           
 
-       //    //xlWorkbook.RefreshAll();
-       //    refreshConnection(xlWorkbook);
-       //    refreshQueryTables(xlWorkbook);
-       //    refreshPivots(xlWorkbook);
-       //    xlWorkbook.Save();
-       //    closeFile( true);
-       //}
-       //private static void refreshQueryTables(Workbook theWorkbook)
-       //{
-       //    Sheets oSheets = (Sheets)theWorkbook.Worksheets;
 
-       //    foreach (Worksheet oWorkSheet in oSheets)
-       //    {
-       //        Console.WriteLine(" {0}", oWorkSheet.Name);
-       //        foreach (QueryTable qt in oWorkSheet.QueryTables)
-       //        {
-       //            Console.WriteLine("--qt:{0}", qt.Name);
-       //            qt.EnableRefresh = true;
-       //            qt.FieldNames = false;
-       //            qt.RowNumbers = false;
-       //            qt.SavePassword = false;
-       //            qt.SaveData = true;
-       //            qt.PreserveColumnInfo = true;
-       //            qt.Refresh(false);
-       //        }
-       //    }
+            xlWorkbook.RefreshAll();
+            xlApp.CalculateUntilAsyncQueriesDone();
 
-       //    return;
-       //}
-       //private static void refreshPivots(Workbook theWorkbook)
-       //{
+            //refreshConnection(xlWorkbook);
+            //refreshQueryTables(xlWorkbook);
+            //refreshPivots(xlWorkbook);
+            //xlWorkbook.Save();
+            closeFile(true);
+        }
+        //private static void refreshQueryTables(Workbook theWorkbook)
+        //{
+        //    Sheets oSheets = (Sheets)theWorkbook.Worksheets;
 
-       //    Console.WriteLine("WorkSheets:");
-       //    Sheets oSheets = (Sheets)theWorkbook.Worksheets;
+        //    foreach (Worksheet oWorkSheet in oSheets)
+        //    {
+        //        Console.WriteLine(" {0}", oWorkSheet.Name);
+        //        foreach (QueryTable qt in oWorkSheet.QueryTables)
+        //        {
+        //            Console.WriteLine("--qt:{0}", qt.Name);
+        //            qt.EnableRefresh = true;
+        //            qt.FieldNames = false;
+        //            qt.RowNumbers = false;
+        //            qt.SavePassword = false;
+        //            qt.SaveData = true;
+        //            qt.PreserveColumnInfo = true;
+        //            qt.Refresh(false);
+        //        }
+        //    }
 
-       //    foreach (Worksheet oWorkSheet in oSheets)
-       //    {
-       //        Console.WriteLine(" {0}", oWorkSheet.Name);
-       //        PivotTables pivotTables1 =
-       //            (PivotTables)oWorkSheet.PivotTables();
+        //    return;
+        //}
+        //private static void refreshPivots(Workbook theWorkbook)
+        //{
 
-       //        if (pivotTables1.Count > 0)
-       //        {
-       //            for (int i = 1; i <= pivotTables1.Count; i++)
-       //            {
-       //                Console.WriteLine("  PivoteTable Refresh: {0}", pivotTables1.Item(i).Name);
-       //                pivotTables1.Item(i).RefreshTable();
+        //    Console.WriteLine("WorkSheets:");
+        //    Sheets oSheets = (Sheets)theWorkbook.Worksheets;
 
-       //            }
-       //        }
-       //        else
-       //        {
-       //            Console.WriteLine("  !This worksheet contains no pivot tables.");
-       //        }
+        //    foreach (Worksheet oWorkSheet in oSheets)
+        //    {
+        //        Console.WriteLine(" {0}", oWorkSheet.Name);
+        //        PivotTables pivotTables1 =
+        //            (PivotTables)oWorkSheet.PivotTables();
 
-       //    }
+        //        if (pivotTables1.Count > 0)
+        //        {
+        //            for (int i = 1; i <= pivotTables1.Count; i++)
+        //            {
+        //                Console.WriteLine("  PivoteTable Refresh: {0}", pivotTables1.Item(i).Name);
+        //                pivotTables1.Item(i).RefreshTable();
 
-       //}
-       //private static void refreshConnection(Workbook theWorkbook)
-       //{
-       //    foreach (WorkbookConnection i in theWorkbook.Connections)
-       //    {
-       //        Console.WriteLine("Connection refresh: {0}", i.Name);
-       //        i.OLEDBConnection.BackgroundQuery = false;
-       //        i.Refresh();
-       //    }
-       //}
-       public void closeFile( Boolean gravar)
+        //            }
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("  !This worksheet contains no pivot tables.");
+        //        }
+
+        //    }
+
+        //}
+        //private static void refreshConnection(Workbook theWorkbook)
+        //{
+        //    foreach (WorkbookConnection i in theWorkbook.Connections)
+        //    {
+        //        Console.WriteLine("Connection refresh: {0}", i.Name);
+        //        i.OLEDBConnection.BackgroundQuery = false;
+        //        i.Refresh();
+        //    }
+        //}
+        public void closeFile( Boolean gravar)
        {
            if(gravar) xlWorkbook.Save();
            xlWorkbook.Close(0);

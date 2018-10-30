@@ -22,8 +22,7 @@ namespace TBMails
             public List<Automatismo.Ficheiro> Ficheiros { get; set; }
             [XmlAttribute("Nome")]
             public string Nome { get; set; }
-
-
+            
             public class Ficheiro
             {
                 [XmlAttribute("Nome")]
@@ -32,19 +31,11 @@ namespace TBMails
                 public List<AutomatismosClass.Automatismo.Ficheiro.Consulta> Ligacoes { get; set; }
                 [XmlAttribute("Configurações Horarios")]
                 public string ConfigHorario_Range { get; set; }
-                //[XmlArray]
-                //public List<string> EmailsRE { get; set; }
-                //[XmlArray]
-                //public List<string> EmailsSup { get; set; }
-                //[XmlArray]
-                //public List<string> EmailsGC{ get; set; }
-
+             
                 [XmlRoot("Ligacao")]
                 public class Consulta
-                {
-                   
-                   // public AutomatismosClass.Automatismo.Ficheiro.Consulta Ligacao { get; set; }
-                    [XmlText]
+                {                   
+                   [XmlText]
                     public string Nome { get; set; }
                     [XmlAttribute]
                     public string Ok { get; set; }

@@ -111,7 +111,7 @@ namespace TBMails
             imap.Login(textBox1.Text, textBox2.Text);
             ActiveUp.Net.Mail.Mailbox mbox = imap.SelectMailbox("Inbox");
             MessageCollection messages;
-            List<long> uids;
+           // List<long> uids;
             if (todayRB.Checked)
             {
                 //uids = imap.Search(Expression.Since(DateTime.Now));

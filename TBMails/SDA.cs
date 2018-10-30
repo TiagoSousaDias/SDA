@@ -27,11 +27,7 @@ namespace TBMails
         public AutomatismosClass autos;
         List<Alertas> ListaAlertas = new List<Alertas>();
 
-        public SDA()
-        {
-            InitializeComponent();
- 
-        }
+        public SDA() => InitializeComponent();
 
         private void TBMail_Load(object sender, EventArgs e)
         {
@@ -41,19 +37,22 @@ namespace TBMails
             //GetAutomatismo();
             //File.WriteAllText(@"Automatismo.xml", (string)ser.Serialize<AutomatismosClass>(AutoStruture));
             RefreshListTB();
+           
+        }
+
+        private void GetGraphics()
+        {
             foreach (AutomatismosClass.Automatismo a in autos.Automatismos)
             {
-                foreach (AutomatismosClass.Automatismo.Ficheiro  f in a.Ficheiros)
+                foreach (AutomatismosClass.Automatismo.Ficheiro f in a.Ficheiros)
                 {
                     foreach (AutomatismosClass.Automatismo.Ficheiro.Consulta item in f.Ligacoes)
                     {
-                        if(item.Range != null && item.Range != "") item.Image = GetImageFromExcel(a.Path+"\\01. Script\\"+f.Nome, item.Range);
+                        if (item.Range != null && item.Range != "") item.Image = GetImageFromExcel(a.Path + "\\01. Script\\" + f.Nome, item.Range);
                     }
                 }
             }
         }
-
-
         private void RefreshListTB()
         {
             autos = ser.Deserialize<AutomatismosClass>((string)File.ReadAllText(@"Automatismo.xml"));
@@ -185,7 +184,7 @@ namespace TBMails
         }
         private List<AutomatismosClass.Automatismo.Ficheiro.Consulta> GetLigacoesFromFile(string file)
         {
-            ExcelLink Tb = new ExcelLink(file);
+            ExcelLink Tb = new ExcelLink(file,true);
             List<AutomatismosClass.Automatismo.Ficheiro.Consulta> Ligs = new List<AutomatismosClass.Automatismo.Ficheiro.Consulta>();
             Range r = Tb.GetRange("C6", "R25");
             foreach (Range item in r.Rows)
@@ -304,10 +303,10 @@ namespace TBMails
             ExcelLink teste = null;
             try
             {
-                 teste = new ExcelLink(tempPath);
+                 teste = new ExcelLink(tempPath,true);
               
             }
-            catch (Exception ex )
+            catch (Exception  )
             {
                 MessageBox.Show("Ficheiro:" + path + "\n Não encontrado");
                 ListaAlertas.Add(new Alertas() { Alerta = TipoAlerta.Erro, Ficheiro = path, TimeError = DateTime.Now });

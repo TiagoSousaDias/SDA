@@ -28,20 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SDA));
             this.fileList = new System.Windows.Forms.ListBox();
             this.AccoesGB = new System.Windows.Forms.GroupBox();
             this.mainPathBT = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.mainPathtxt = new System.Windows.Forms.TextBox();
-            this.checkFile = new System.Windows.Forms.Button();
             this.runScriptBT = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.checkFile = new System.Windows.Forms.Button();
             this.gravar = new System.Windows.Forms.Button();
             this.dashboardBT = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.detalhesTB = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.configHorarioTxt = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.configHorpic = new System.Windows.Forms.PictureBox();
             this.o_tb_Folder = new System.Windows.Forms.Button();
             this.pathTxt = new System.Windows.Forms.TextBox();
             this.webDownBt = new System.Windows.Forms.Panel();
@@ -69,17 +74,13 @@
             this.ckdBT = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.mainPathDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.configHorpic = new System.Windows.Forms.PictureBox();
-            this.configHorarioTxt = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.AccoesGB.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.detalhesTB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.configHorpic)).BeginInit();
             this.webDownBt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rngAl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.configHorpic)).BeginInit();
             this.SuspendLayout();
             // 
             // fileList
@@ -154,17 +155,6 @@
             this.mainPathtxt.Size = new System.Drawing.Size(552, 27);
             this.mainPathtxt.TabIndex = 6;
             // 
-            // checkFile
-            // 
-            this.checkFile.Location = new System.Drawing.Point(840, 13);
-            this.checkFile.Name = "checkFile";
-            this.checkFile.Size = new System.Drawing.Size(97, 23);
-            this.checkFile.TabIndex = 1;
-            this.checkFile.Text = "Check File";
-            this.checkFile.UseVisualStyleBackColor = true;
-            this.checkFile.Visible = false;
-            this.checkFile.Click += new System.EventHandler(this.checkFile_Click);
-            // 
             // runScriptBT
             // 
             this.runScriptBT.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -185,6 +175,17 @@
             this.button1.Text = "Actualizar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // checkFile
+            // 
+            this.checkFile.Location = new System.Drawing.Point(840, 13);
+            this.checkFile.Name = "checkFile";
+            this.checkFile.Size = new System.Drawing.Size(97, 23);
+            this.checkFile.TabIndex = 1;
+            this.checkFile.Text = "Check File";
+            this.checkFile.UseVisualStyleBackColor = true;
+            this.checkFile.Visible = false;
+            this.checkFile.Click += new System.EventHandler(this.checkFile_Click);
             // 
             // gravar
             // 
@@ -254,6 +255,42 @@
             this.detalhesTB.TabStop = false;
             this.detalhesTB.Text = "Detalhes";
             this.detalhesTB.Visible = false;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(870, 42);
+            this.button4.Margin = new System.Windows.Forms.Padding(0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(67, 20);
+            this.button4.TabIndex = 21;
+            this.button4.Text = "Gravar";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
+            // configHorarioTxt
+            // 
+            this.configHorarioTxt.Location = new System.Drawing.Point(767, 42);
+            this.configHorarioTxt.Name = "configHorarioTxt";
+            this.configHorarioTxt.Size = new System.Drawing.Size(100, 20);
+            this.configHorarioTxt.TabIndex = 20;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(719, 45);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(49, 13);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Horarios:";
+            // 
+            // configHorpic
+            // 
+            this.configHorpic.Location = new System.Drawing.Point(718, 68);
+            this.configHorpic.Name = "configHorpic";
+            this.configHorpic.Size = new System.Drawing.Size(219, 527);
+            this.configHorpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.configHorpic.TabIndex = 18;
+            this.configHorpic.TabStop = false;
             // 
             // o_tb_Folder
             // 
@@ -488,7 +525,7 @@
             this.tbsBT.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbsBT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.tbsBT.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbsBT.Location = new System.Drawing.Point(363, 8);
+            this.tbsBT.Location = new System.Drawing.Point(411, 8);
             this.tbsBT.MinimumSize = new System.Drawing.Size(100, 26);
             this.tbsBT.Name = "tbsBT";
             this.tbsBT.Size = new System.Drawing.Size(100, 27);
@@ -502,7 +539,7 @@
             this.ckdBT.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ckdBT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ckdBT.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckdBT.Location = new System.Drawing.Point(231, 8);
+            this.ckdBT.Location = new System.Drawing.Point(279, 8);
             this.ckdBT.Name = "ckdBT";
             this.ckdBT.Size = new System.Drawing.Size(126, 27);
             this.ckdBT.TabIndex = 12;
@@ -517,47 +554,11 @@
             this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(117, 8);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(108, 27);
+            this.button2.Size = new System.Drawing.Size(156, 27);
             this.button2.TabIndex = 14;
-            this.button2.Text = "Download -Web";
+            this.button2.Text = "Download /Upload";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
-            // configHorpic
-            // 
-            this.configHorpic.Location = new System.Drawing.Point(718, 68);
-            this.configHorpic.Name = "configHorpic";
-            this.configHorpic.Size = new System.Drawing.Size(219, 527);
-            this.configHorpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.configHorpic.TabIndex = 18;
-            this.configHorpic.TabStop = false;
-            // 
-            // configHorarioTxt
-            // 
-            this.configHorarioTxt.Location = new System.Drawing.Point(767, 42);
-            this.configHorarioTxt.Name = "configHorarioTxt";
-            this.configHorarioTxt.Size = new System.Drawing.Size(100, 20);
-            this.configHorarioTxt.TabIndex = 20;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(719, 45);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 13);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Horarios:";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(870, 42);
-            this.button4.Margin = new System.Windows.Forms.Padding(0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(67, 20);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "Gravar";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // SDA
             // 
@@ -569,6 +570,7 @@
             this.Controls.Add(this.tbsBT);
             this.Controls.Add(this.dashboardBT);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SDA";
             this.Text = "SDA - SmartData Analysis";
             this.Load += new System.EventHandler(this.TBMail_Load);
@@ -578,32 +580,23 @@
             this.groupBox1.PerformLayout();
             this.detalhesTB.ResumeLayout(false);
             this.detalhesTB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.configHorpic)).EndInit();
             this.webDownBt.ResumeLayout(false);
             this.webDownBt.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rngAl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.configHorpic)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button addPathBt;
         private System.Windows.Forms.ListBox fileList;
         private System.Windows.Forms.GroupBox AccoesGB;
         private System.Windows.Forms.Button checkFile;
         private System.Windows.Forms.Button runScriptBT;
-        private System.Windows.Forms.GroupBox BdsGrp;
         private System.Windows.Forms.Button dashboardBT;
-        private System.Windows.Forms.Button chkBD;
-        private System.Windows.Forms.Button editBDBT;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button criarBDBT;
-        private System.Windows.Forms.ListBox BDList;
-        private System.Windows.Forms.Button eliminarBDBT;
-        private System.Windows.Forms.Button btaddTB;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox detalhesTB;
         private System.Windows.Forms.Label filesLB;

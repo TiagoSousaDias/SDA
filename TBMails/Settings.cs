@@ -24,6 +24,26 @@ namespace TBMails
             [XmlAttribute]
             public string Active { get; set; }
         }
+        [XmlElement("Portal_S3_Links")]
+        public List<Clientes> ClientesList{ get; set; }
+        [XmlElement("Portal_S3_UploadFile")]
+        public List<UploadFile> UploadFiles { get; set; }
+        public class Clientes
+        {
+            [XmlAttribute]
+            public string Cliente { get; set; }
+            [XmlAttribute]
+            public string Active { get; set; }
+        }
+        public class UploadFile
+        {
+            [XmlAttribute]
+            public string Documento { get; set; }
+            [XmlAttribute]
+            public string Refresh { get; set; }
+            [XmlAttribute]
+            public string Active { get; set; }
+        }
     }
 
 }

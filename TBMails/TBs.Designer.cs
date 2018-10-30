@@ -35,8 +35,13 @@
             this.reMails = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.reportsList = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.TBSTree = new System.Windows.Forms.TreeView();
+            this.paths = new System.Windows.Forms.ListBox();
+            this.pathTXT = new System.Windows.Forms.TextBox();
+            this.addpathLb = new System.Windows.Forms.Label();
+            this.addPathBt = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // bccMails
@@ -110,32 +115,81 @@
             this.label8.Text = "Emails:";
             this.label8.Visible = false;
             // 
-            // reportsList
-            // 
-            this.reportsList.FormattingEnabled = true;
-            this.reportsList.Location = new System.Drawing.Point(32, 67);
-            this.reportsList.Name = "reportsList";
-            this.reportsList.Size = new System.Drawing.Size(247, 524);
-            this.reportsList.TabIndex = 20;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 51);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(18, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.Size = new System.Drawing.Size(35, 15);
             this.label1.TabIndex = 21;
             this.label1.Text = "TB\'s";
-            this.label1.Visible = false;
+            // 
+            // TBSTree
+            // 
+            this.TBSTree.CheckBoxes = true;
+            this.TBSTree.Location = new System.Drawing.Point(21, 158);
+            this.TBSTree.Name = "TBSTree";
+            this.TBSTree.Size = new System.Drawing.Size(396, 525);
+            this.TBSTree.TabIndex = 22;
+            this.TBSTree.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.TBSTree_AfterCheck);
+            // 
+            // paths
+            // 
+            this.paths.FormattingEnabled = true;
+            this.paths.Location = new System.Drawing.Point(21, 83);
+            this.paths.Name = "paths";
+            this.paths.Size = new System.Drawing.Size(396, 69);
+            this.paths.TabIndex = 23;
+            // 
+            // pathTXT
+            // 
+            this.pathTXT.Location = new System.Drawing.Point(21, 44);
+            this.pathTXT.Name = "pathTXT";
+            this.pathTXT.Size = new System.Drawing.Size(370, 20);
+            this.pathTXT.TabIndex = 24;
+            // 
+            // addpathLb
+            // 
+            this.addpathLb.AutoSize = true;
+            this.addpathLb.Location = new System.Drawing.Point(20, 28);
+            this.addpathLb.Name = "addpathLb";
+            this.addpathLb.Size = new System.Drawing.Size(98, 13);
+            this.addpathLb.TabIndex = 25;
+            this.addpathLb.Text = "Adicionar Caminho:";
+            // 
+            // addPathBt
+            // 
+            this.addPathBt.Location = new System.Drawing.Point(397, 43);
+            this.addPathBt.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.addPathBt.Name = "addPathBt";
+            this.addPathBt.Size = new System.Drawing.Size(20, 22);
+            this.addPathBt.TabIndex = 26;
+            this.addPathBt.Text = "+";
+            this.addPathBt.UseVisualStyleBackColor = true;
+            this.addPathBt.Click += new System.EventHandler(this.addPathBt_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(20, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Caminhos:";
             // 
             // TBs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1248, 695);
+            this.Controls.Add(this.addPathBt);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.addpathLb);
+            this.Controls.Add(this.pathTXT);
+            this.Controls.Add(this.paths);
+            this.Controls.Add(this.TBSTree);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.reportsList);
             this.Controls.Add(this.bccMails);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.ccMails);
@@ -161,7 +215,12 @@
         private System.Windows.Forms.ListBox reMails;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListBox reportsList;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TreeView TBSTree;
+        private System.Windows.Forms.ListBox paths;
+        private System.Windows.Forms.TextBox pathTXT;
+        private System.Windows.Forms.Label addpathLb;
+        private System.Windows.Forms.Button addPathBt;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -83,7 +83,7 @@ namespace TBMails
                     string t = selectedElement.Element(MainLigacaoTag).Elements(LigacaoTag).Where(x => (int)x.Attribute("Id") == _ID).FirstOrDefault().Attribute("Refreshed").Value;
                     _Checked = (t == "False" ? false : true);
                 }
-                catch (Exception ex){ }
+                catch (Exception ){ }
             }
             public void NovaLigacao(string Name) {
                 XDocument doc = XDocument.Load(Ficheiro);
